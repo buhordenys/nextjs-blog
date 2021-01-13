@@ -1,39 +1,47 @@
-import Head from 'next/head'
-import utilStyle from '../../styles/utils.module.css'
-import Layout from '../../components/layout'
-import { getAllPostIds, getPostData } from '../../lib/posts'
-import Date from "../../components/data";
+import Head from 'next/head';
+import PropTypes from 'prop-types';
+import utilStyle from '../../src/components/styles/utils.module.css';
+import Layout from '../../src/components/layout/layout';
+import { getAllPostIds, getPostData } from '../../lib/posts';
+import Date from '../../src/components/pages/Date/date';
 
-export default function Post({ postData }) {
-    return (
-        <Layout>
-            <Head>
-                <title>{postData.title}</title>
-            </Head>
-            <article>
-                <h1 className={utilStyle.headingXl}>{postData.title}</h1>
-                <div className={utilStyle.lightText}>
-                    <Date dateString={postData.date}/>
-                </div>
-                <div dangerouslySetInnerHTML={{ __html: postData.contentHtml}}/>
-            </article>
-        </Layout>
-    )
+function Post({ postData }) {
+  return (
+    <Layout>
+      <Head>
+        <title>{postData.title}</title>
+      </Head>
+      <article>
+        <h1 className={utilStyle.headingXl}>{postData.title}</h1>
+        <div className={utilStyle.lightText}>
+          <Date dateString={postData.date} />
+        </div>
+        {/* eslint-disable-next-line react/no-danger */}
+        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+      </article>
+    </Layout>
+  );
 }
 
 export async function getStaticPaths() {
-    const paths = getAllPostIds()
-    return {
-        paths,
-        fallback: false
-    }
+  const paths = getAllPostIds();
+  return {
+    paths,
+    fallback: false
+  };
 }
 
 export async function getStaticProps({ params }) {
-    const postData = await getPostData(params.id)
-    return {
-        props: {
-            postData
-        }
+  const postData = await getPostData(params.id);
+  return {
+    props: {
+      postData
     }
+  };
 }
+
+Post.propTypes = {
+  postData: PropTypes.func.isRequired,
+};
+
+export default Post;
