@@ -7,7 +7,10 @@ function App({ Component, pageProps }) {
 
 App.propTypes = {
   Component: PropTypes.func.isRequired,
-  pageProps: PropTypes.func.isRequired,
+  pageProps: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.object
+  ]).isRequired
 };
 
 export default App;

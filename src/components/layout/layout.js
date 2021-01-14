@@ -60,6 +60,15 @@ function Layout({ children, home }) {
   );
 }
 
-Layout.propTypes = { children: PropTypes.func.isRequired, home: PropTypes.func.isRequired, };
+Layout.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.array
+  ]).isRequired,
+  home: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.bool
+  ]).isRequired
+};
 
 export default Layout;

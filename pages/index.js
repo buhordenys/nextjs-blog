@@ -53,7 +53,10 @@ function Home({ allPostsData }) {
 }
 
 Home.propTypes = {
-  allPostsData: PropTypes.func.isRequired,
+  allPostsData: PropTypes.oneOfType([
+    PropTypes.func,
+    PropTypes.array
+  ]).isRequired
 };
 
 export default Home;
