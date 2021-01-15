@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
+import { withTranslation } from '../i18n/i18n';
 import styles from './sass/layout.module.css';
 import utilStyles from '../styles/utils.module.css';
 
@@ -70,4 +71,4 @@ Layout.defaultProps = {
   home: false
 };
 
-export default Layout;
+export default withTranslation('common')(Layout);

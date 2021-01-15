@@ -1,9 +1,10 @@
 import Head from 'next/head';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
-import Date from '../src/components/pages/Date/date';
-import Layout, { siteTitle } from '../src/components/layout/layout';
-import utilStyles from '../src/components/styles/utils.module.css';
+import Date from '../src/pages/Date/date';
+import Layout, { siteTitle } from '../src/layout/layout';
+import utilStyles from '../src/styles/utils.module.css';
+import { withTranslation } from '../src/i18n/i18n';
 import { getSortedPostsData } from '../lib/posts';
 
 export async function getStaticProps() {
@@ -60,4 +61,8 @@ Home.defaultProps = {
   allPostsData: []
 };
 
-export default Home;
+Home.getInitialProps = async () => (
+  { namespacesRequired: ['common', 'home'] }
+);
+
+export default withTranslation('home')(Home);

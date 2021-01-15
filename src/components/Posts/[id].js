@@ -1,9 +1,10 @@
 import Head from 'next/head';
+import React from 'react';
 import PropTypes from 'prop-types';
-import utilStyle from '../../src/components/styles/utils.module.css';
-import Layout from '../../src/components/layout/layout';
-import { getAllPostIds, getPostData } from '../../lib/posts';
-import Date from '../../src/components/pages/Date/date';
+import utilStyle from '../../styles/utils.module.css';
+import Layout from '../../layout/layout';
+import { getAllPostIds, getPostData } from '../../../lib/posts';
+import Date from '../../pages/Date/date';
 
 function Post({ postData }) {
   return (

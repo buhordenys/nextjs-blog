@@ -1,5 +1,6 @@
-import '../src/components/pages/App/sass/global.css';
 import PropTypes from 'prop-types';
+import '../src/pages/App/sass/global.css';
+import { appWithTranslation } from '../src/i18n/i18n';
 
 function App({ Component, pageProps }) {
   return <Component {...pageProps} />;
@@ -13,4 +14,4 @@ App.propTypes = {
   ]).isRequired
 };
 
-export default App;
+export default appWithTranslation(App);
