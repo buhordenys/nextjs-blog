@@ -7,7 +7,11 @@ function Date({ dateString }) {
 }
 
 Date.propTypes = {
-  dateString: PropTypes.string.isRequired,
+  dateString: PropTypes.string
+};
+
+Date.defaultProps = {
+  dateString: ''
 };
 
 export default Date;

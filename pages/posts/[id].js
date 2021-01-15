@@ -41,7 +41,11 @@ export async function getStaticProps({ params }) {
 }
 
 Post.propTypes = {
-  postData: PropTypes.func.isRequired,
+  postData: PropTypes.objectOf(PropTypes.string)
+};
+
+Post.defaultProps = {
+  postData: {}
 };
 
 export default Post;

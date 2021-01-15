@@ -53,7 +53,7 @@ function Home({ allPostsData }) {
 }
 
 Home.propTypes = {
-  allPostsData: PropTypes.func
+  allPostsData: PropTypes.arrayOf(PropTypes.object)
 };
 
 Home.defaultProps = {
