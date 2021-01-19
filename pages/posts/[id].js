@@ -1,9 +1,9 @@
 import Head from 'next/head';
 import PropTypes from 'prop-types';
-import utilStyle from '../../styles/utils.module.css';
-import Layout from '../../layout/layout';
-import { getAllPostIds, getPostData } from '../../../lib/posts';
-import Date from '../../pages/Date/date';
+import utilStyle from '../../src/styles/utils.module.css';
+import Layout from '../../src/layout/layout';
+import { getAllPostIds, getPostData } from '../../lib/posts';
+import Date from '../../src/components/Date/date';
 
 function Post({ postData }) {
   return (

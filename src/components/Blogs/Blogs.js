@@ -2,7 +2,7 @@ import Link from 'next/link';
 import PropTypes from 'prop-types';
 import Layout from '../../layout/layout';
 import utilStyles from '../../styles/utils.module.css';
-import Date from '../../pages/Date/date';
+import Date from '../Date/date';
 import { getSortedPostsData } from '../../../lib/posts';
 
 export async function getStaticProps() {
