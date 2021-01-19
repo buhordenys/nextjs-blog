@@ -61,12 +61,15 @@ function Layout({ children, home }) {
 }
 
 Layout.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.object),
+  children: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.arrayOf(PropTypes.element)
+  ]),
   home: PropTypes.bool
 };
 
 Layout.defaultProps = {
-  children: [],
+  children: {},
   home: false
 };
 

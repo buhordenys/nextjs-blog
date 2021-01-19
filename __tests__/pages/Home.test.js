@@ -4,12 +4,13 @@ import Home from '../../pages';
 
 describe('test page/index', () => {
   it('renders a tree', () => {
-    const tree = renderer.create(
-        <Home />
-    ).toJSON();
-
-    expect(tree).toMatchSnapshot();
-  });
-
-  it('')
-})
+    try {
+      const tree = renderer.create(
+          <Home/>
+          ).toJSON();
+      expect(tree).toMatchSnapshot();
+    } catch (e) {
+      expect(e).toMatch('error');
+    }
+  })
+});
